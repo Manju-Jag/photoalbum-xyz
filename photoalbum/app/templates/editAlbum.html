@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<div><p><a href="{{ url_for('main.album') }}">Back</a></p></div>
+    <h3>EDIT ALBUM</h3>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}
+            {{ form.name(size=32) }}<br>
+            {% for error in form.name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.description.label }}
+            {{ form.description(size=100) }}<br>
+            {% for error in form.description.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.category.label }}
+            {{ form.category.select }}
+            {{ form.category }}<br>
+            {% for error in form.category.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p> {{ form.is_favourite.label }} {{ form.is_favourite() }} </p>
+        <p>{{ form.update() }}</p>
+        
+    </form>
+{% endblock %}
+

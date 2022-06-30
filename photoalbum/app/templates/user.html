@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>User: {{ user.username }}</h1>
+    <hr>
+    {% for photo in photos %}
+    <p>
+    {{ photo.author.username }} says: <b>{{ <a href="{{ url_for('main.browse', id=albums.id) }}">browse</a> }}</b>
+    <!-- <a href="{{ url_for('upload') }}">upload</a> -->
+    </p>
+    {% endfor %}
+{% endblock %}

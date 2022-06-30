@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  </style>
+  </head>
+  <body>
+  
+  <h3>List of Albums</h3>
+  <h3>You can view, edit and delete your albums here</h3>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Favourite</th>
+      <th>View Photos</th>
+      <th>Upload Photos</th>
+      <th>Edit Album</th>
+      <th>Delete Album</th>
+    </tr>
+    
+    {% for albums in albumvalues %}
+    <tr>
+      <td>{{ albums.name }}</td>
+      <td>{{ albums.category }}</td>
+      <td>{{ albums.description }}</td>
+      <td>{{ albums.is_favourite }}</td>
+      <td><a href="{{ url_for('main.viewalbum', albumId=albums.id)}}">View</a></td>
+      <td><a href="{{ url_for('main.browse', id=albums.id)}}">Upload</a></td>
+      <td><a href="{{ url_for('main.editAlbum', id=albums.id)}}">Edit</a></td>
+      <td><a href="{{ url_for('main.deleteAlbum', id=albums.id)}}">Delete</a></td>
+      
+    </tr>
+    {% endfor %}
+  </table>
+{%endblock%}
+

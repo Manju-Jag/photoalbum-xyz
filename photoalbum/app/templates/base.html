@@ -1,0 +1,35 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        {% if title %}
+        <title>{{ title }} - PhotoAlbum</title>
+        {% else %}
+        <title>PhotoAlbum</title>
+        {% endif %}
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>
+            Photo Album:
+            <a href="{{ url_for('main.home') }}">Home</a>
+            {% if current_user.is_anonymous %}
+            <a href="{{ url_for('main.login') }}">Login</a>
+            {% else %}
+            <a href="{{ url_for('main.logout') }}">Logout</a>
+            {% endif %}
+          </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

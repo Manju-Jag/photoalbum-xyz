@@ -1,0 +1,15 @@
+{% if current_user.is_anonymous %}
+        <a href="{{ url_for('main.login') }}">Login</a><br>
+        <p>New User? <a href="{{ url_for('main.SignUp') }}">Click to Sign Up!</a></p>
+        {% else %}
+        <a href="{{ url_for('main.index') }}">Profile</a><br>
+        <a href="{{ url_for('main.logout') }}">Logout</a>
+{% endif %}
+<section >
+        <img src="https://www.google.com/photos/about/static/images/picasa/picasa-logo-159.png">
+        <div class="title">Welome to Album Builder</div>
+        <div class="subtitle">You can add, delete photos and group them into different category!</div>
+</section>
+          
+<div class="question">Go ahead and create the album on your own</div>
+  

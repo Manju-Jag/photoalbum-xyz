@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <h4>Hi, {{ current_user.username }}!</h4>
+    
+    <div><p><a href="{{ url_for('main.album') }}">Your Albums</a></p></div>
+    <div><p><a href="{{ url_for('main.createAlbum') }}">Create Album</a></p></div>
+    
+{% endblock %}

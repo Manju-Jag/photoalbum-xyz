@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div><p><a href="{{ url_for('main.album') }}">Back</a></p></div>
+<h2>{{ album.name }}</h2>
+<body>
+    {% for photo in photos %}
+    <div><img src="{{ photo.photo_url }}" style="
+        width: 400;
+        height: 400;
+        padding: 20;
+    "></div><br>
+    <div>
+        <a href="{{ photo.photo_url }}" download>Download</a></div>
+    {% endfor %}
+    
+</body>
+{% endblock %}
