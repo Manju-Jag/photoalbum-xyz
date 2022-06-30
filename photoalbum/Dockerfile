@@ -1,8 +1,8 @@
 FROM ubuntu
 
-RUN sudo apt-get update
-RUN sudo apt-get install -y python3
-RUN sudo apt-get install -y python3-pip
+RUN apt-get update
+RUN apt-get install -y python3
+RUN apt-get install -y python3-pip
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
