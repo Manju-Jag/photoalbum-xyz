@@ -3,7 +3,6 @@ kind: Service
 metadata:
   annotations:
     cloud.google.com/neg: '{"ingress":true}'
-  creationTimestamp: "2022-07-18T08:04:34Z"
   finalizers:
   - service.kubernetes.io/load-balancer-cleanup
   labels:
@@ -49,8 +48,6 @@ metadata:
     time: "2022-07-18T08:05:11Z"
   name: album
   namespace: default
-  resourceVersion: "4947"
-  uid: 735a1de5-f9c5-426e-9aa3-d69e3da01ed0
 spec:
   allocateLoadBalancerNodePorts: true
   clusterIP: 10.8.6.210
